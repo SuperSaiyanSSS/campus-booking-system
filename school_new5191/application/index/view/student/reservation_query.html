@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>预约系统</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="__CSS__/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="__CSS__/font-awesome.css" rel="stylesheet" />
+       <!--CUSTOM BASIC STYLES-->
+    <link href="__CSS__/basic.css" rel="stylesheet" />
+    <!--CUSTOM MAIN STYLES-->
+    <link href="__CSS__/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                 <a class="navbar-brand" href="__ROOT__/index.php/index/student/sinfo">学生个人信息</a>
+            </div>
+
+            <div class="header-right">
+
+               
+                <a href="__ROOT__/index.php/index/index" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+
+            </div>
+        </nav>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <div class="user-img-div">
+                            <img src="__IMG__/user.png" class="img-thumbnail" />
+
+                             <div class="inner-text">
+                                {$student_id}
+                            <br />
+                                <small>欢迎登录 </small>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                    <li>
+                        <a  href="__ROOT__/index.php/index/student/reservations"><i class="fa fa-dashboard "></i>预约老师</a>
+                    </li>
+                    <li>
+                        <a href="__ROOT__/index.php/index/student/reservation_query"><i class="fa fa-flash "></i>查询预约 </a>
+                        
+                    </li>
+                   
+                    <li>
+                        <a href="__ROOT__/index.php/index/student/assess"><i class="fa fa-anchor "></i>评价</a>
+                    </li>
+                    <li>
+                        <a href="__ROOT__/index.php/index/student/suggestion_box"><i class="fa fa-bug "></i>提建议</a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="__ROOT__/index.php/index/student/ranking_list"><i class="fa fa-square-o "></i>查询排行</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">查询预约</h1>
+                        <h1 class="page-subhead-line">查询并可以管理预约 </h1>
+
+                    </div>
+                </div>
+        <!-- /. NAV SIDE  -->
+           
+                <div>
+            <table height=600 width=600 background=__IMG__/2.png border=0 align="center">
+            <tbody>
+            <tr>
+        	<td>
+
+                    
+                    <table class="goaler" style="border:solid 1px black" border="1" align="center"><tbody><tr>
+                    <th style="width:90px;text-align:center;">老师序号</td>
+                    <th style="width:90px;text-align:center;">老师名称</td>
+                    
+                    <th style="width:90px;text-align:center;">星期</th>
+                    <th style="width:90px;text-align:center;">节次</th>
+                    
+                   <!-- <td style="width:60px;">预约时间</td>-->
+                    <th style="width:90px;text-align:center;">取消预约</th>
+                    </tr>
+                    {volist name="choose" id="vo"}
+                    <tr>
+                    <td style="text-align:center;">{$vo[0]['teacher_id']}</td>
+                    <td style="text-align:center;">{$vo[0]['name']}</td>
+                    
+                    <td style="text-align:center;">{$vo[0]['day_sequence']}</td>
+                    <td style="text-align:center;">{$vo[0]['item_sequence']}</td>
+                    
+                    <!--<td>2018/3/27 10:13:34</td>-->
+                    <td style="text-align:center;">
+                    	<form action="" method="post"> 
+                    		<input type="hidden" name="id_delete" value="{$vo[0]['time_id']}">
+                  			<input type="submit" name="Repeater" value="取消" > 
+				
+                  		</form>
+                     </td>
+                    </tr>
+                    {/volist}
+                    </tbody></table>
+		</tbody></table></td></tr>
+                </div>
+                <br>
+                </form>
+            
+            </div>
+           
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+
+    <div id="footer-sec">
+       
+    </div>
+    
+
+
+</body>
+</html>

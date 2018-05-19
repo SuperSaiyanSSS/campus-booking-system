@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>预约系统</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="__CSS__/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="__CSS__/font-awesome.css" rel="stylesheet" />
+       <!--CUSTOM BASIC STYLES-->
+    <link href="__CSS__/basic.css" rel="stylesheet" />
+    <!--CUSTOM MAIN STYLES-->
+    <link href="__CSS__/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">个人信息</a>
+            </div>
+
+            <div class="header-right">
+
+                
+                <a href="__ROOT__/index.php/index/index" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+
+            </div>
+        </nav>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <div class="user-img-div">
+                            <img src="__IMG__/user.png" class="img-thumbnail" />
+
+                            <div class="inner-text">
+                                	管理员
+                            <br />
+                                <small>欢迎登录 </small>
+                            </div>
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <a  href="gdelete.html"><i class="fa fa-dashboard "></i>管理评论</a>
+                    </li>
+                    <li>
+                        <a href="gchange.html"><i class="fa fa-flash "></i>管理学生个人信息 </a>
+                        
+                    </li>
+                   
+                    <li>
+                        <a href="gchanget.html"><i class="fa fa-bug "></i>管理老师个人信息</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">管理评论</h1>
+                        <h1 class="page-subhead-line">查询并可以管理评论 </h1>
+
+                    </div>
+                </div>
+        <!-- /. NAV SIDE  -->
+	<table height=600 width=600 background=__IMG__/2.png border=0 align="center">
+            <tbody>
+            <tr>
+        <td>
+        <form action="" method="post">
+        <h4 align="center">老师名称：<select name="DropDownList_exp_number" id="DropDownList_exp_number">
+        	{volist name="array_teacher" id="vo"}
+            	<option selected="selected" value="{$vo['name']}">{$vo['name']}</option>
+            {/volist}
+        </select>
+<input type="submit" name="btn_find" value="查询" id="btn_find" class="buttom"></h4>
+        </form>
+            
+                <div>
+            
+                    
+                    <table class="goaler"  style="border:solid 1px black" border="1" align="center"><tbody>
+                    <tr>
+                    <td style="width:600px;text-align:center;">评论</td>
+                    <td style="width:60 px;text-align:center;">管理</td>
+					
+                    </tr>
+                    {volist name="array_comment" id="vo1"}
+                    <tr>
+                   
+                    <td>
+                    	{$vo1['content']} &nbsp;&nbsp;{$vo1['time']} &nbsp;&nbsp;{$vo1['author_name']} &nbsp;&nbsp;{$vo1['teacher_id']} 
+                    </td>
+  
+                    <td>
+                  		<form action="" method="post">
+							<input type="hidden" name="id_delete" value="{$vo1['comment_id']}">
+                  			<input type="submit" name="delete" value="删除" > 
+						</form>
+                     </td>
+                    </tr>
+                    {/volist}
+                
+                    
+                    </tbody></table>
+                    </tbody></table></td></tr>
+                    
+             
+                  
+                    
+                </div>
+                <br>
+                
+            
+            
+        
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+</body>
+</html>
